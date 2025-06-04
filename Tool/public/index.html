@@ -1,0 +1,298 @@
+<!-- Licensed under the MIT License.
+For details on the licensing terms, see the LICENSE file.
+SPDX-License-Identifier: MIT
+
+Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Subscriber</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+        const client = mqtt.connect('ws://localhost:8083/mqtt');
+    </script> 
+    
+<!-- CSS -->
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.0/full/pyodide.js"></script>
+
+
+<!-- MQTT -->  
+<script src="mqtt.js"></script> 
+
+<!-- Navbar und so weiter -->
+
+<div id="box" class="box"></div>
+<!-- Der Text über der Box -->
+<div id="text" class="text">SWAP IT Visualisation Tool</div>
+<!-- Das Menü -->
+<div id="navbar" class="navbar">
+    <a href="http://127.0.0.1:5000/resources/all">Export</a>
+    <a href="/Users/joh41297/Desktop/swap-it-visualisation-tool/add_resource.html">Import</a>
+    <div class="dropdownbar">
+        <button class="dropbtnbar">Safe 
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdownbar-contentbar">
+        <a href="#">Safe</a>
+        <a href="#">Safe as PNG</a>
+        <a href="#">Safe as JSON-Configuartion</a>
+        </div>
+    </div> 
+</div>
+
+
+<div id="mySidenavLeft" class="sidenav sidenav-left">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('left')">&times;</a>
+  <a href="javascript:void(0)" onclick="toggleDropdown('aboutOrderDropdown')">Start Order</a>
+  <div id="aboutOrderDropdown" class="dropdown-content">
+      <a href="javascript:void(0)" onclick="showRunningServices()">Current Orders</a>
+      <a href="javascript:void(0)" onclick="toggleDropdown('aboutHistoryDropdown')">Order History</a>
+      <div id="aboutHistoryDropdown" class="dropdown-content">
+        <a href="javascript:void(0)" onclick="gunttpy()">Generate Gantt Chart</a>
+        <a href="javascript:void(0)" onclick="openPlot('images/diagramm.png')">Show Gantt Chart</a>
+        <a href="javascript:void(0)" onclick="gunttclearpy()">Clear History</a>
+      </div>
+      <a href="javascript:void(0)" onclick="toggleDropdown('aboutChoiceDropdown')">Start Order</a>
+      <div id="aboutChoiceDropdown" class="dropdown-content">
+        <a href="javascript:void(0)" onclick="openModal('Campaign')">Start Campaign</a>
+        <a href="javascript:void(0)" onclick="openModal('Service')">Start single Order</a>
+    </div>
+  </div>
+  <a href="javascript:void(0)" onclick="toggleDropdown('aboutEnvironmentDropdown')">Plot Queue</a>
+  <div id="aboutEnvironmentDropdown" class="dropdown-content">
+      <a href="javascript:void(0)" onclick="openModal('Resource')">Start Environment</a>
+      <a href="javascript:void(0)" onclick="queue_push('all')">Generate Heatmap of Queues</a>
+      <a href="javascript:void(0)" onclick="openPlot('images/Heatmap.png')">Show Heatmap</a>
+  </div>
+</div>
+
+<!-- Das Modal -->
+<div id="myServiceModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal('Service')">&times;</span>
+      <div class="input-container">
+        <label for="textInputPathSingle">Please enter path to pfdl: </label>
+        <textarea id="textInputPathSingle" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/dynamic.pfdl'"></textarea>
+    </div>
+    <div class="input-container">
+        <label for="textInput_nSingle">Please enter Number of Orders: </label>
+        <textarea id="textInput_nSingle" placeholder="Default: '1'"></textarea>
+    </div>
+    
+    <!-- Dropdown for non-mandatory arguments -->
+    <details>
+        <summary>Not Mandatory Arguments</summary>
+        <div class="input-container">
+            <label for="textInputURLSingle">URL: </label>
+            <textarea id="textInputURLSingle" placeholder="Default: 'opc.tcp://localhost:4000'(+ started Orders)"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDelaySingle">Delay</label>
+            <textarea id="textInputDelaySingle" placeholder="Default: 0"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDashboardHostAddressSingle">Dashboard Host Address</label>
+            <textarea id="textInputDashboardHostAddressSingle" placeholder="Default: 'http://host.docker.internal:8080'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputLogInfoSingle">Log Info</label>
+            <textarea id="textInputLogInfoSingle" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDevice_RegistryURLSingle">Device_RegistryURL</label>
+            <textarea id="textInputDevice_RegistryURLSingle" placeholder="Default: 'opc.tcp://host.docker.internal:8000'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputCustomURLSingle">Custom URL</label>
+            <textarea id="textInputCustomURLSingle" placeholder="Default: 'opc.tcp://host.docker.internal:'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputNumberDefaultClientsSingle">Number Default Clients</label>
+            <textarea id="textInputNumberDefaultClientsSingle" placeholder="Default: 5"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputAssignmentAgentURLSingle">Assignment Agent URL</label>
+            <textarea id="textInputAssignmentAgentURLSingle" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDelayStartSingle">Delay of the Execution Engine start</label>
+            <textarea id="textInputDelayStartSingle" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputPrioritySingle">Priority</label>
+            <textarea id="textInputPrioritySingle" placeholder="Default: 2"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputPrioritizerURLSingle">Prioritizer URL</label>
+            <textarea id="textInputPrioritizerURLSingle" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputInformation_Model_PathSingle">Information Model Path</label>
+            <textarea id="textInputInformation_Model_PathSingle" placeholder="Default: '../swap-it-execution-engine/model/SWAP.Fraunhofer.Execution.Engine.Model.NodeSet2.xml'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputMQTTURLSingle">MQTT URL</label>
+            <textarea id="textInputMQTTURLSingle" placeholder="Default: 'localhost'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputMQTTPortSingle">MQTT Port</label>
+            <textarea id="textInputMQTTPortSingle" placeholder="Default: 1884"></textarea>
+        </div>
+    </details>
+      
+      <!-- Buttons outside the dropdown -->
+      <div class="button-container">
+          <button id="runSingleButton">Run</button>
+          <button id="fileButton">From File</button>
+          <input type="file" id="fileInput">
+      </div>
+    
+      <pre id="output"></pre> <!-- Bereich zum Anzeigen des Outputs -->
+  </div>
+</div>
+
+<div id="myCampaignModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal('Campaign')">&times;</span>
+      <div class="input-container">
+          <label for="textInputPathCampaign">Please enter path to pfdl: </label>
+          <textarea id="textInputPathCampaign" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/dynamic.pfdl'"></textarea>
+      </div>
+      <div class="input-container">
+          <label for="textInput_nCampaign">Please enter Number of Orders: </label>
+          <textarea id="textInput_nCampaign" placeholder="Default: '5'"></textarea>
+      </div>
+      
+      <!-- Dropdown for non-mandatory arguments -->
+      <details>
+        <summary>Not Mandatory Arguments</summary>
+        <div class="input-container">
+            <label for="textInputURLCampaign">URL: </label>
+            <textarea id="textInputURLCampaign" placeholder="Default: 'opc.tcp://localhost:4000'(+ started Orders)"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDelayCampaign">Delay</label>
+            <textarea id="textInputDelayCampaign" placeholder="Default: 0"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDashboardHostAddressCampaign">Dashboard Host Address</label>
+            <textarea id="textInputDashboardHostAddressCampaign" placeholder="Default: 'http://host.docker.internal:8080'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputLogInfoCampaign">Log Info</label>
+            <textarea id="textInputLogInfoCampaign" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDevice_RegistryURLCampaign">Device_RegistryURL</label>
+            <textarea id="textInputDevice_RegistryURLCampaign" placeholder="Default: 'opc.tcp://host.docker.internal:8000'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputCustomURLCampaign">Custom URL</label>
+            <textarea id="textInputCustomURLCampaign" placeholder="Default: 'opc.tcp://host.docker.internal:'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputNumberDefaultClientsCampaign">Number Default Clients</label>
+            <textarea id="textInputNumberDefaultClientsCampaign" placeholder="Default: 5"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputAssignmentAgentURLCampaign">Assignment Agent URL</label>
+            <textarea id="textInputAssignmentAgentURLCampaign" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputDelayStartCampaign">Delay of the Execution Engine start</label>
+            <textarea id="textInputDelayStartCampaign" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputPriorityCampaign">Priority</label>
+            <textarea id="textInputPriorityCampaign" placeholder="Default: 2"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputPrioritizerURLCampaign">Prioritizer URL</label>
+            <textarea id="textInputPrioritizerURLCampaign" placeholder="Default: None"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputInformation_Model_PathCampaign">Information Model Path</label>
+            <textarea id="textInputInformation_Model_PathCampaign" placeholder="Default: '../swap-it-execution-engine/model/SWAP.Fraunhofer.Execution.Engine.Model.NodeSet2.xml'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputMQTTURLCampaign">MQTT URL</label>
+            <textarea id="textInputMQTTURLCampaign" placeholder="Default: 'localhost'"></textarea>
+        </div>
+        <div class="input-container">
+            <label for="textInputMQTTPortCampaign">MQTT Port</label>
+            <textarea id="textInputMQTTPortCampaign" placeholder="Default: 1884"></textarea>
+        </div>
+      </details>
+      
+      <!-- Buttons outside the dropdown -->
+      <div class="button-container">
+          <button id="runCampaignButton">Run</button>
+      </div>
+    
+      <pre id="output"></pre> <!-- Bereich zum Anzeigen des Outputs -->
+  </div>
+</div>
+
+<div id="myResourceModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal('Resource')">&times;</span>
+      <!-- <div class="input-container">
+        <label for="DockerInput">Please enter url: </label>
+        <textarea id="DockerInput" placeholder="Default: 'opc.tcp://localhost'"></textarea>
+      </div> -->
+      <div class="button-container">
+        <button id="StartDockerButton">Start Docker</button>
+        <button id="StopDockerButton">Stop Docker</button>
+    </div>
+  </div>
+</div>
+
+<div id="myGunttModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('Guntt')">&times;</span>
+        
+        <!-- Image -->
+        <div class="image-container">
+            <img id="gunttImage" src="images/diagramm.png" alt="Guntt Chart" style="width: 100%; max-height: 500px;">
+        </div>
+    </div>
+</div>
+
+<!-- Das Textfield -->
+<div id="myTextfield" class="Textfield">
+  <div class="modal-content">
+      <span class="close" onclick="closeTextfield()">&times;</span>
+      <pre id="textfieldOutput"></pre> <!-- Bereich zum Anzeigen des Outputs -->
+  </div>
+</div>
+
+<script src="run_python.js"></script> 
+
+<div id="mySidenavRight" class="sidenav sidenav-right">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('right')">&times;</a>
+</div>
+
+<div id="main" style="position: absolute;">
+    <canvas id="myCanvas" width="1500" height="600"></canvas>    
+
+<!-- Linkes Menü -->
+<div id="leftMenu" style="position: absolute; top: 0; left: 0;">
+  <span style="font-size:30px;cursor:pointer" onclick="openNavleft('left')">&#9776; </span>
+</div>
+    
+<script src="drawShopfloor.js"></script> 
+
+</div>  
+</body>
+
+</html>
