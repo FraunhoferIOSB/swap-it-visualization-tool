@@ -1,0 +1,368 @@
+[
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "50",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "milling_dr1",
+        "resource_ip": "docker.host.internal",
+        "port": "4071",
+        "module_type": "MillingModuleType",
+        "module_name": "MillingModule",
+        "service_name": "Milling",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "200",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "gluing_dr1",
+        "resource_ip": "localhost",
+        "port": "4061",
+        "module_type": "GluingModuleType",
+        "module_name": "GluingModule",
+        "service_name": "Gluing",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "350",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "mounting_dr1",
+        "resource_ip": "docker.host.internal",
+        "port": "4051",
+        "module_type": "MountingModuleType",
+        "module_name": "MountingModule",
+        "service_name": "Mounting",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "50",
+        "y_coordinate": "300",
+        "state": "0",
+        "radius": "18",
+        "application_name": "warehouse_dr",
+        "resource_ip": "localhost",
+        "port": "4081",
+        "module_type": "WarehouseModuleType",
+        "module_name": "WarehouseModule",
+        "service_name": "GetPartsFromWarehouse",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "200",
+        "y_coordinate": "300",
+        "state": "0",
+        "radius": "18",
+        "application_name": "warehouse_dr1",
+        "resource_ip": "docker.host.internal",
+        "port": "4082",
+        "module_type": "WarehouseModuleType",
+        "module_name": "WarehouseModule",
+        "service_name": "GetPartsFromWarehouse",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "500",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "coating_dr1",
+        "resource_ip": "localhost",
+        "port": "4091",
+        "module_type": "CoatingModuleType",
+        "module_name": "CoatingModule",
+        "service_name": "Coating",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "650",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "coating_dr2",
+        "resource_ip": "docker.host.internal",
+        "port": "4092",
+        "module_type": "CoatingModuleType",
+        "module_name": "CoatingModule",
+        "service_name": "Coating",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    },
+    {
+        "events": [],
+        "static": true,
+        "x_coordinate": "800",
+        "y_coordinate": "50",
+        "state": "0",
+        "width": "100",
+        "height": "80",
+        "application_name": "coating_dr3",
+        "resource_ip": "docker.host.internal",
+        "port": "4093",
+        "module_type": "CoatingModuleType",
+        "module_name": "CoatingModule",
+        "service_name": "Coating",
+        "device_registry": "opc.tcp://localhost:8000",
+        "registry_subscriptions": [
+            {
+                "object": "State"
+            },
+            {
+                "object": "Capabilities"
+            }
+        ],
+        "Capabilities": [
+            {
+                "variable_name": "test_numeric",
+                "variable_type": "numeric",
+                "Value": "120",
+                "Relational_Operator": "Smaller"
+            },
+            {
+                "variable_name": "test_string",
+                "variable_type": "string",
+                "Value": "test_string",
+                "Relational_Operator": "EqualString"
+            },
+            {
+                "variable_name": "test_boolean",
+                "variable_type": "bool",
+                "Value": "false",
+                "Relational_Operator": "IsFalse"
+            }
+        ],
+        "channels": "100",
+        "sessions": "100"
+    }
+]
