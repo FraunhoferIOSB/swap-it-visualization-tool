@@ -1,0 +1,9 @@
+.idea
+build
+temp/
+swap-it-execution-engine/
+demo-scenario/
+swap-it-registry-module
+images/
+Dockerfile
+docker-compose.yml

@@ -1,0 +1,8 @@
+#[submodule "swap-it-execution-engine"]
+#	path = swap-it-execution-engine
+#	url = https://github.com/FraunhoferIOSB/swap-it-execution-engine
+#
+[submodule "swap-it-execution-engine"]
+	path = swap-it-execution-engine
+	url = https://github.com/FlorianDue/swap-it-execution-engine.git
+	branch = opcua_service_events
