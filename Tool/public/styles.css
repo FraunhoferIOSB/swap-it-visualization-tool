@@ -35,7 +35,7 @@ canvas {
 
 .text {
   position: relative;
-  top: 5px;
+  top: 26px;
   left: 20px;
   transform: translate(0, -20%);
   font-family: Comic, sans-serif;

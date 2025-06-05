@@ -12,107 +12,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// async function runScript(n, delay, url, path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url) {
-//     await sleep(delay);
-//     for (let i = 0; i < n; i++) {
-//         loop(path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url, i);
-//     }    
-// }
-
-// async function loop(path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url, i){
-        
-//     const requestData = {
-//         inputData1: `opc.tcp://localhost:${4000 + i}`,
-//         inputData2: path,
-//         inputData3: dashboard_host_address,
-//         inputData5: device_registry_url,
-//         inputData6: custom_url,
-//     };
-    
-//     // Print the exact JSON payload being sent
-//     console.log("Request Data:", JSON.stringify(requestData, null, 2));
-
-//     try {
-//         IsItRunning = true;
-//         console.log(`IsItRunning: ${IsItRunning}`);
-
-//         const response = await fetch('/start-execution-engine', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(requestData)
-//         });
-
-//         if (!response.body) {
-//             throw new Error('ReadableStream not supported.');
-//         }
-
-//         const reader = response.body.getReader();
-//         const decoder = new TextDecoder();
-//         let done = false;
-
-//         // Set the output element where we'll be displaying the results
-//         const outputElement = document.getElementById('output');
-//         outputElement.textContent = ''; // Clear previous output
-
-//         // // Read the stream and display it in real-time
-//         // while (!done) {
-//         //     const { value, done: doneReading } = await reader.read();
-//         //     done = doneReading;
-//         //     const chunk = decoder.decode(value, { stream: !done });
-//         //     outputElement.textContent += chunk;
-//         // }
-
-//         IsItRunning = false;
-//         console.log(`IsItRunning: ${IsItRunning}`);
-//     } catch (err) {
-//         console.error('Error running script:', err);
-//         document.getElementById('output').textContent = 'Error: ' + err;
-//         IsItRunning = false;
-//     }
-// }
-
-// document.getElementById('runSingleButton').addEventListener('click', () => {
-//     const n = document.getElementById('textInput_nSingle').value.trim() || 1;
-//     const delay = document.getElementById('textInputDelaySingle').value.trim() || 0;
-//     const path = document.getElementById('textInputPathSingle').value.trim() || "../swap-it-execution-engine/PFDL_Examples/advanced.pfdl";
-//     const url = document.getElementById('textInputURLSingle').value.trim() || `opc.tcp://localhost:${4000 + counter}`;
-//     if (counter < 101) {
-//         counter++;
-//     } else {
-//         counter = 0;
-//     }
-//     const dashboard_host_address = document.getElementById('textInputDashboardHostAddressSingle').value.trim() || 'dashboard_host_address=http://localhost:8080';
-//     const log_info = document.getElementById('textInputLogInfoSingle').value.trim() || NaN;
-//     const device_registry_url = document.getElementById('textInputDevice_RegistryURLSingle').value.trim() || 'device_registry_url=opc.tcp://localhost:8000';
-//     const custom_url = document.getElementById('textInputCustomURLSingle').value.trim() || 'custom_url=opc.tcp://localhost:';
-//     const number_default_clients = document.getElementById('textInputNumberDefaultClientsSingle').value.trim() || NaN;
-//     const assignment_agent_url = document.getElementById('textInputAssignmentAgentURLSingle').value.trim() || NaN;
-
-//     runScript(n, delay, url, path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url);
-// });
-
-// document.getElementById('runCampaignButton').addEventListener('click', () => {
-//     const n = document.getElementById('textInput_nCampaign').value.trim() || 3;
-//     const delay = document.getElementById('textInputDelayCampaign').value.trim() || 0;
-//     const path = document.getElementById('textInputPathCampaign').value.trim() || "../swap-it-execution-engine/PFDL_Examples/advanced.pfdl";
-//     const url = document.getElementById('textInputURLCampaign').value.trim() || `opc.tcp://localhost:${4000 + counter}`;
-//     if (counter < 101) {
-//         counter++;
-//     } else {
-//         counter = 0;
-//     }
-//     const dashboard_host_address = document.getElementById('textInputDashboardHostAddressCampaign').value.trim() || 'dashboard_host_address=http://localhost:8080';
-//     const log_info = document.getElementById('textInputLogInfoCampaign').value.trim() || NaN;
-//     const device_registry_url = document.getElementById('textInputDevice_RegistryURLCampaign').value.trim() || 'device_registry_url=opc.tcp://localhost:8000';
-//     const custom_url = document.getElementById('textInputCustomURLCampaign').value.trim() || 'custom_url=opc.tcp://localhost:';
-//     const number_default_clients = document.getElementById('textInputNumberDefaultClientsCampaign').value.trim() || NaN;
-//     const assignment_agent_url = document.getElementById('textInputAssignmentAgentURLCampaign').value.trim() || NaN;
-
-//     runScript(n, delay, url, path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url);
-// });
-
 document.getElementById('fileButton').addEventListener('click', function() {
     document.getElementById('fileInput').click();
 });
@@ -257,58 +156,6 @@ async function stopDocker() {
     }
 }
 
-
-// document.getElementById('runSingleButton').addEventListener('click', () => {
-//     const numEE = 1;
-//     startSubprocesses({numEE: numEE});
-// });
-
-// document.getElementById('runCampaignButton').addEventListener('click', () => {
-//     const numEE = 5;
-//     startSubprocesses({numEE: numEE});
-// });
-
-// async function startSubprocesses(args) {
-//     console.log("func");
-//     try {
-//         const response = await fetch(`/subprocesses`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(args)
-//         });
-//         if (!response.body) {
-//             throw new Error('ReadableStream not supported.');
-//         }
-//     } catch (err) {
-//         console.error('Error running script:', err);
-//         document.getElementById('output').textContent = 'Error: ' + err;
-//     }
-// }
-
-
-
-// document.getElementById('runSingleButton').addEventListener('click', () => {
-//     const n = document.getElementById('textInput_nSingle').value.trim() || 1;
-//     const delay = document.getElementById('textInputDelaySingle').value.trim() || 0;
-//     const path = document.getElementById('textInputPathSingle').value.trim() || "../swap-it-execution-engine/PFDL_Examples/advanced.pfdl";
-//     const url = document.getElementById('textInputURLSingle').value.trim() || `opc.tcp://localhost:${4000 + counter}`;
-//     if (counter < 100) {
-//         counter++;
-//     } else {
-//         counter = 0;
-//     }
-//     const dashboard_host_address = document.getElementById('textInputDashboardHostAddressSingle').value.trim() || 'dashboard_host_address=http://localhost:8080';
-//     const log_info = document.getElementById('textInputLogInfoSingle').value.trim() || NaN;
-//     const device_registry_url = document.getElementById('textInputDevice_RegistryURLSingle').value.trim() || 'device_registry_url=opc.tcp://localhost:8000';
-//     const custom_url = document.getElementById('textInputCustomURLSingle').value.trim() || 'custom_url=opc.tcp://localhost:';
-//     const number_default_clients = document.getElementById('textInputNumberDefaultClientsSingle').value.trim() || NaN;
-//     const assignment_agent_url = document.getElementById('textInputAssignmentAgentURLSingle').value.trim() || NaN;
-
-//     runScript(n, delay, url, path, dashboard_host_address, log_info, device_registry_url, custom_url, number_default_clients, assignment_agent_url);
-// });
-
 document.getElementById('runSingleButton').addEventListener('click', () => {
     const counterOffset = 4000 + counter;
     const args = {
@@ -359,9 +206,9 @@ document.getElementById('runCampaignButton').addEventListener('click', () => {
         priority: document.getElementById('textInputPriorityCampaign').value.trim() || 2,
         prioritizer_url: document.getElementById('textInputPrioritizerURLCampaign').value.trim() || null,
         information_model_path: document.getElementById('textInputInformation_Model_PathCampaign').value.trim() || "../swap-it-execution-engine/model/SWAP.Fraunhofer.Execution.Engine.Model.NodeSet2.xml",
-        mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'visualisation_tool',
+        mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'localhost',
         // mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'host.docker.internal',
-        mqtt_port: document.getElementById('textInputMQTTPortCampaign').value.trim() || 1884 //1884
+        mqtt_port: document.getElementById('textInputMQTTPortCampaign').value.trim() || null //1884
     };
     const n = parseInt(args.n);
     counter = (counter < 100) ? counter + n : 0;

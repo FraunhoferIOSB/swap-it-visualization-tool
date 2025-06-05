@@ -36,8 +36,8 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
 <div id="text" class="text">SWAP IT Visualisation Tool</div>
 <!-- Das Menü -->
 <div id="navbar" class="navbar">
-    <a href="http://127.0.0.1:5000/resources/all">Export</a>
-    <a href="/Users/joh41297/Desktop/swap-it-visualisation-tool/add_resource.html">Import</a>
+    <a ></a>
+    <!-- <a href="/Users/joh41297/Desktop/swap-it-visualisation-tool/add_resource.html">Import</a>
     <div class="dropdownbar">
         <button class="dropbtnbar">Safe 
         <i class="fa fa-caret-down"></i>
@@ -47,7 +47,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
         <a href="#">Safe as PNG</a>
         <a href="#">Safe as JSON-Configuartion</a>
         </div>
-    </div> 
+    </div>  -->
 </div>
 
 
@@ -55,7 +55,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('left')">&times;</a>
   <a href="javascript:void(0)" onclick="toggleDropdown('aboutOrderDropdown')">Start Order</a>
   <div id="aboutOrderDropdown" class="dropdown-content">
-      <a href="javascript:void(0)" onclick="showRunningServices()">Current Orders</a>
+      <!-- <a href="javascript:void(0)" onclick="showRunningServices()">Current Orders</a> -->
       <a href="javascript:void(0)" onclick="toggleDropdown('aboutHistoryDropdown')">Order History</a>
       <div id="aboutHistoryDropdown" class="dropdown-content">
         <a href="javascript:void(0)" onclick="gunttpy()">Generate Gantt Chart</a>
@@ -70,7 +70,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
   </div>
   <a href="javascript:void(0)" onclick="toggleDropdown('aboutEnvironmentDropdown')">Plot Queue</a>
   <div id="aboutEnvironmentDropdown" class="dropdown-content">
-      <a href="javascript:void(0)" onclick="openModal('Resource')">Start Environment</a>
+      <!-- <a href="javascript:void(0)" onclick="openModal('Resource')">Start Environment</a> -->
       <a href="javascript:void(0)" onclick="queue_push('all')">Generate Heatmap of Queues</a>
       <a href="javascript:void(0)" onclick="openPlot('images/Heatmap.png')">Show Heatmap</a>
   </div>
@@ -82,7 +82,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
       <span class="close" onclick="closeModal('Service')">&times;</span>
       <div class="input-container">
         <label for="textInputPathSingle">Please enter path to pfdl: </label>
-        <textarea id="textInputPathSingle" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/dynamic.pfdl'"></textarea>
+        <textarea id="textInputPathSingle" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/advanced.pfdl'"></textarea>
     </div>
     <div class="input-container">
         <label for="textInput_nSingle">Please enter Number of Orders: </label>
@@ -106,7 +106,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
         </div>
         <div class="input-container">
             <label for="textInputLogInfoSingle">Log Info</label>
-            <textarea id="textInputLogInfoSingle" placeholder="Default: None"></textarea>
+            <textarea id="textInputLogInfoSingle" placeholder="Default: True"></textarea>
         </div>
         <div class="input-container">
             <label for="textInputDevice_RegistryURLSingle">Device_RegistryURL</label>
@@ -166,7 +166,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
       <span class="close" onclick="closeModal('Campaign')">&times;</span>
       <div class="input-container">
           <label for="textInputPathCampaign">Please enter path to pfdl: </label>
-          <textarea id="textInputPathCampaign" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/dynamic.pfdl'"></textarea>
+          <textarea id="textInputPathCampaign" placeholder="Default: '../swap-it-execution-engine/Tutorial/PFDL/advanced.pfdl'"></textarea>
       </div>
       <div class="input-container">
           <label for="textInput_nCampaign">Please enter Number of Orders: </label>
@@ -190,7 +190,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
         </div>
         <div class="input-container">
             <label for="textInputLogInfoCampaign">Log Info</label>
-            <textarea id="textInputLogInfoCampaign" placeholder="Default: None"></textarea>
+            <textarea id="textInputLogInfoCampaign" placeholder="Default: True"></textarea>
         </div>
         <div class="input-container">
             <label for="textInputDevice_RegistryURLCampaign">Device_RegistryURL</label>
