@@ -59,9 +59,6 @@ When the tool is started initially, the main window appears as shown in Figure 1
    +-----------+-----------+-------------+--------------+-----------+-----------+-----------+
    | Code      | "0"       | "1"         | "2"          | "3"       | "4"       | "5"       |
    +-----------+-----------+-------------+--------------+-----------+-----------+-----------+
-   | Colorcode | "#D3D3D3" | "#90EE90"   | "#FFFF99"    | "#ff0000" | "#ADD8E6" | "#e0b0ff" |
-   +-----------+-----------+-------------+--------------+-----------+-----------+-----------+
-
 
 3. **Sidebar (Right)**  
    Initially hidden; slides in when a user clicks on a specific resource. Contains detailed information broken into collapsible panels.
@@ -104,15 +101,9 @@ The first one is **Start Order** and the second one is **Plot Queue**.
     Clicking on Start Order opens a dropdown with the options: **Current Orders**, **Order History** and again **Start Order**.
     - **Current Orders**: Shows a little window with the number of current orders. 
     - **Order History**: This opens yet another dropdown with three options. The first option is to generate a Gantt Chart of the process after the process is finished. This generated Gantt Chart can be shown by the second option in the dropdown. This takes up to several seconds. The third button is used to clear the produced chart to restart the measurement.
-    - **Start Order**: Starting an **Execution Engine** is done by clicking **Start Campaign** or **Start single Order**. The only difference among those two is that the default value of started orders is ``5`` for a started Campaign and ``1`` for a single Order. The modal that pops up is discussed further in the next chapter.
+    - **Start Order**: Starting an **Execution Engine** is done by clicking **Start Campaign** or **Start single Order**. The only difference among those two is that the default value of started orders is ``5`` for a started Campaign and ``1`` for a single Order. The modal that pops up is discussed further in section :ref:`Starting an Execution Engine`.
 2. **Plot Queue**
     Here you can generate a Heatmap of an ongoing or finished process. 
-
-Starting an Execution Engine
-----------------------------
-
-
-
 
 
 
@@ -194,21 +185,9 @@ The Visualization Tool provides direct integration with the **SWAP-IT Execution 
    - A toast notification appears: “Order ID #1234: Status=Running”.  
    - The footer status bar updates to reflect that a campaign or single order has started.
 
+.. toctree::
+   :maxdepth: 2
 
-.. Indices and tables
-.. ==================
-.. +-------------+--------------+
-.. | Spaltenname | Spaltenname2 |
-.. +=============+==============+
-.. | Wert1       | Wert2        |
-.. +-------------+--------------+
+   Starting_an_execution_engine
 
 
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: Inhaltsverzeichnis:
-
-..    main-html
-..    Interfaces
-..    Navigation
-..    Manipulationsskripte
