@@ -176,8 +176,8 @@ document.getElementById('runSingleButton').addEventListener('click', () => {
         priority: document.getElementById('textInputPrioritySingle').value.trim() || 2,
         prioritizer_url: document.getElementById('textInputPrioritizerURLSingle').value.trim() || null,
         information_model_path: document.getElementById('textInputInformation_Model_PathSingle').value.trim() || "../swap-it-execution-engine/model/SWAP.Fraunhofer.Execution.Engine.Model.NodeSet2.xml",
-        mqtt_url: document.getElementById('textInputMQTTURLSingle').value.trim() || 'localhost',
-        // mqtt_url: document.getElementById('textInputMQTTURLSingle').value.trim() || 'host.docker.internal',
+        // mqtt_url: document.getElementById('textInputMQTTURLSingle').value.trim() || 'localhost',
+        mqtt_url: document.getElementById('textInputMQTTURLSingle').value.trim() || 'host.docker.internal',
         mqtt_port: document.getElementById('textInputMQTTPortSingle').value.trim() || null //1884
     };
     const n = parseInt(args.n);
@@ -206,8 +206,8 @@ document.getElementById('runCampaignButton').addEventListener('click', () => {
         priority: document.getElementById('textInputPriorityCampaign').value.trim() || 2,
         prioritizer_url: document.getElementById('textInputPrioritizerURLCampaign').value.trim() || null,
         information_model_path: document.getElementById('textInputInformation_Model_PathCampaign').value.trim() || "../swap-it-execution-engine/model/SWAP.Fraunhofer.Execution.Engine.Model.NodeSet2.xml",
-        mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'localhost',
-        // mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'host.docker.internal',
+        // mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'localhost',
+        mqtt_url: document.getElementById('textInputMQTTURLCampaign').value.trim() || 'host.docker.internal',
         mqtt_port: document.getElementById('textInputMQTTPortCampaign').value.trim() || null //1884
     };
     const n = parseInt(args.n);
