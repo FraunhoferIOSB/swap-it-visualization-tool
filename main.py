@@ -125,7 +125,7 @@ class MQTTReceiver:
             ax.axis('off')
             text = "No Order Data Available"
             ax.text(0.5, 0.5, text, ha='center', va='center', fontsize=40, color='black')
-            plt.savefig("./Tool/public/diagramm.png", dpi=300)
+            plt.savefig("./Tool/public/images/diagramm.png", dpi=300)
             plt.show()
         else:
             ee_url = event["ee_url"]
