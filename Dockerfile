@@ -21,19 +21,13 @@ RUN apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 
-# Mosquitto.conf
-COPY mosquitto.conf /etc/mosquitto/mosquitto.conf
-
 WORKDIR /app
-
 COPY . /app
 
 # Python
-#COPY requirements.txt /app/requirements.txt
 RUN pip3 install -r requirements.txt
 
 RUN git clone https://gitlab.com/graphviz/graphviz/
-
 WORKDIR /app/graphviz
 RUN ./autogen.sh \
 
@@ -43,21 +37,17 @@ RUN ./autogen.sh \
 RUN dot -c
 
 WORKDIR /app
-
 # Node.js
-#COPY Tool /app/Tool
 WORKDIR /app/Tool
 RUN npm install
 
 # Set workdir
 WORKDIR /app
-#COPY main.py /app/main.py
 
 RUN git clone https://github.com/FlorianDue/swap-it-execution-engine.git
 WORKDIR /app/swap-it-execution-engine
 RUN git fetch --all
 RUN git checkout origin/opcua_service_events -b opcua_service_events_branch
-# RUN git checkout origin/order_priorization -b order_priorization_branch
 
 WORKDIR /app
 
