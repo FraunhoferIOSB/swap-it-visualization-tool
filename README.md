@@ -32,11 +32,6 @@ Besides, NodeJs (https://nodejs.org/) must be installed on the system.
 ```
     3.10.14
 ```
-<!-- 
-## Start Docker Environment
-
-To start the Docker environment you have to click on the three stripes in the upper left corner of the canvas to open the side navigation bar.
-After that click on "Start Resources" and then again on "Start Resources". After that there is a little window with "Start Docker" and "Stop Docker". The Buttons do what they are saying. When you start the Docker environment you can allways observe the current state of the environment in the terminal you startet the tool with. -->
 
 ## Start Execution Engine
 
@@ -71,16 +66,9 @@ For Mosquitto to run properly while starting the tool locally, a mosquitto.conf 
 	allow_anonymous true
 ```
 
+## Start the Swap-It-Visualisation-Tool
 
-
-
-
-
-
-
-
-
-``` 
+ 
 	sudo apt update
 	sudo apt install nodejs npm
 	cd Tool
@@ -90,9 +78,39 @@ For Mosquitto to run properly while starting the tool locally, a mosquitto.conf 
 	cd ..
 	git clone https://github.com/FraunhoferIOSB/swap-it-execution-engine.git
 	python3 main.py
-```	
+	
 
 
+## Docker
 
-## Start the Swap-It-Visualisation-Tool
 
+The repository contains a Docker file to build an Docker Image of the visualization tool, as well as a docker-compose project, which starts an execution environment, including ressources and a registry module
+
+### Build and Run the Docker Image 
+
+```
+    docker build -t swap_it_visualization_tool -f Dockerfile .
+    
+    docker run -p 3000:3000 -p 1884:1884 -p 1883:1883 -P --add-host host.docker.internal:host-gateway swap_it_visualization_tool
+
+``` 
+
+### Docker-compose
+
+```
+    docker-compose up
+```
+
+
+## Related Projects
+
+The SWAP-IT-Visualization-Tool is an extension of the SWAP-IT Architecture. Plenty of other projects are published in this context. However, the tool requires for 
+its full functionality experimental features, so that the provided links below will lead to the concrete branches of the corresponding repositories:
+An short overview about the SWAP-IT Architecture, as well as its components and application can be found in the [DemoScenario](https://github.com/swap-it/demo-scenario/tree/order_prioritization) repository.
+
+- [ExecutionEngine](https://github.com/FlorianDue/swap-it-execution-engine/tree/opcua_service_events)
+- [ClientInterface](https://github.com/FraunhoferIOSB/swap-it-client-interface)
+- [DemoScenario](https://github.com/swap-it/demo-scenario/tree/order_prioritization)
+- [RegistryModule](https://github.com/FraunhoferIOSB/swap-it-registry-module/tree/queue_handling)
+- [ServerTemplate](https://github.com/FlorianDue/swap-it-open62541-server-template/tree/order_queue)
+- [Dashboard](https://github.com/iml130/swap-it-dashboard)

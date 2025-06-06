@@ -4,5 +4,4 @@ temp/
 swap-it-execution-engine/
 demo-scenario/
 swap-it-registry-module
-Dockerfile
 docker-compose.yml
