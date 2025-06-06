@@ -21,6 +21,9 @@ RUN apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 
+# Mosquitto.conf
+COPY mosquitto.conf /etc/mosquitto/mosquitto.conf
+
 WORKDIR /app
 COPY . /app
 
@@ -55,7 +58,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8083 1884 3000 4000 4001 4002 4003
+EXPOSE 8083 1883 1884 3000 4000 4001 4002 4003
 
 # start mosquitto demon and tool
 CMD ["sh", "-c", "mosquitto -c /etc/mosquitto/mosquitto.conf -d && exec python3 /app/main.py"]
