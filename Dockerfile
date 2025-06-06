@@ -29,7 +29,7 @@ WORKDIR /app
 COPY . /app
 
 # Python
-COPY requirements.txt /app/requirements.txt
+#COPY requirements.txt /app/requirements.txt
 RUN pip3 install -r requirements.txt
 
 RUN git clone https://gitlab.com/graphviz/graphviz/
@@ -45,13 +45,13 @@ RUN dot -c
 WORKDIR /app
 
 # Node.js
-COPY Tool /app/Tool
+#COPY Tool /app/Tool
 WORKDIR /app/Tool
 RUN npm install
 
 # Set workdir
 WORKDIR /app
-COPY main.py /app/main.py
+#COPY main.py /app/main.py
 
 RUN git clone https://github.com/FlorianDue/swap-it-execution-engine.git
 WORKDIR /app/swap-it-execution-engine
