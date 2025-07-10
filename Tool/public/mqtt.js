@@ -388,8 +388,26 @@ function getparameter(resourceApplication_name, searchparameter){
   return false;
 }
 
-function queue_push(name) {
-  const mqttTopic = "queuepush";
+function queue_push_single(name) {
+  const mqttTopic = "queuepush/single";
+  console.log("single");
+
+  if (name === "all") {
+    client.publish(mqttTopic, JSON.stringify(queueQueue));
+  } else {
+    const selectedApp = queueQueue.find(entry => entry.application_name === name);
+    
+    if (selectedApp) {
+      client.publish(mqttTopic, JSON.stringify([selectedApp]));
+    } else {
+      console.warn(`Keine Anwendung mit dem Namen "${name}" gefunden.`);
+    }
+  }
+}
+
+function queue_push_all(name) {
+  const mqttTopic = "queuepush/all";
+    console.log("all");
 
   if (name === "all") {
     client.publish(mqttTopic, JSON.stringify(queueQueue));

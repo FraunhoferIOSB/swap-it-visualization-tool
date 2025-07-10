@@ -12,21 +12,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-document.getElementById('fileButton').addEventListener('click', function() {
-    document.getElementById('fileInput').click();
-});
-
-document.getElementById('fileInput').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('textInput1').value = e.target.result;
-        };
-        reader.readAsText(file);
-    }
-});
-
 function openModal(type) {
     const modalMap = {
         'Service': 'myServiceModal',

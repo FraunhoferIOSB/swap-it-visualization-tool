@@ -71,7 +71,7 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
   <a href="javascript:void(0)" onclick="toggleDropdown('aboutEnvironmentDropdown')">Plot Queue</a>
   <div id="aboutEnvironmentDropdown" class="dropdown-content">
       <!-- <a href="javascript:void(0)" onclick="openModal('Resource')">Start Environment</a> -->
-      <a href="javascript:void(0)" onclick="queue_push('all')">Generate Heatmap of Queues</a>
+      <a href="javascript:void(0)" onclick="queue_push_all('all')">Generate Heatmap of Queues</a>
       <a href="javascript:void(0)" onclick="openPlot('images/Heatmap.png')">Show Heatmap</a>
   </div>
 </div>
@@ -153,8 +153,6 @@ Copyright 2024-2025 (c) Fraunhofer IOSB (Author: Johannes Engel) -->
       <!-- Buttons outside the dropdown -->
       <div class="button-container">
           <button id="runSingleButton">Run</button>
-          <button id="fileButton">From File</button>
-          <input type="file" id="fileInput">
       </div>
     
       <pre id="output"></pre> <!-- Bereich zum Anzeigen des Outputs -->

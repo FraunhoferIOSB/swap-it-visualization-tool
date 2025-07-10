@@ -217,12 +217,12 @@ class MQTTReceiver:
                 spine.set_linewidth(0.5)
 
             plt.tight_layout()
-            plt.savefig("/app/Tool/public/images/diagramm.png", dpi=300)  # Höhere Auflösung
+            plt.savefig("./Tool/public/images/diagramm.png", dpi=300)  # Höhere Auflösung
             plt.show()
 
 
 class MQTTReceiverQueue:
-    def __init__(self, broker=broker, port=port, topic="queuepush"):
+    def __init__(self, broker=broker, port=port, topic="queuepush/#"):
         print(broker, port)
         self.client = Client()
         self.broker = broker
@@ -245,13 +245,22 @@ class MQTTReceiverQueue:
         print(f"Received queueQueue with {len(queue_data)} applications.")
 
         with self.lock:
-            if len(queue_data) == 1:
-                self.plot_single_application(queue_data[0])
-            elif len(queue_data) > 1:
-                self.plot_heatmap(queue_data)
+            if message.topic == "queuepush/single":
+                print("single")
+                if len(queue_data) == 1:
+                    self.plot_single_application(queue_data[0], "./Tool/public/images/SingleQueue.png")
+                else:
+                    print("Expected a single application in queuepush/single. Something went wrong")
+            elif message.topic == "queuepush/all":
+                print("all")
+                if len(queue_data) > 1:
+                    self.plot_heatmap(queue_data, "./Tool/public/images/Heatmap.png")
+                else:
+                    self.plot_single_application(queue_data[0], "./Tool/public/images/Heatmap.png")
 
 
-    def plot_single_application(self, app_data):
+
+    def plot_single_application(self, app_data, save_path):
         print(app_data)
         try:
             times = [float(t) for t in app_data["time"]]
@@ -270,11 +279,12 @@ class MQTTReceiverQueue:
         plt.xlabel("Time / s")
         plt.ylabel("Length of queue")
         plt.tight_layout()
-        plt.savefig("./Tool/public/images/Heatmap.png", dpi=300)
-        print("finished plotting")
+        plt.savefig(save_path, dpi=300)
+        plt.show()
+        print(f"finished plotting single application to {save_path}")
 
 
-    def plot_heatmap(self, apps):
+    def plot_heatmap(self, apps, save_path):
         print(apps)
         try:
             fig, ax = plt.subplots(figsize=(12, 6))
@@ -332,8 +342,9 @@ class MQTTReceiverQueue:
             fig.colorbar(sm, ax=ax, label="Length of queue")
 
             plt.tight_layout()
-            plt.savefig("./Tool/public/images/Heatmap.png", dpi=300)
-            print("finished plotting")
+            plt.savefig(save_path, dpi=300)
+            plt.show()
+            print(f"finished plotting heatmap to {save_path}")
 
         except Exception as e:
             print(f"Error producing the plot, with code: {e}")

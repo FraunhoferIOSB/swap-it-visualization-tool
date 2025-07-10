@@ -350,8 +350,8 @@ function openNavBoth(menu, content, menuTextColor, side, state, capabilities, qu
     }
     content += "</div>";
     let applicationName = application_name;
-    content += `<button onclick="queue_push('${applicationName}')" class="queue-action-button" style="margin-top: 10px;">Generate Queue Plot</button>`;
-    content += `<button onclick="openPlot('images/Heatmap.png')" class="queue-action-button" style="margin-top: 10px;">Show Queue Plot</button>`;
+    content += `<button onclick="queue_push_single('${applicationName}')" class="queue-action-button" style="margin-top: 10px;">Generate Queue Plot</button>`;
+    content += `<button onclick="openPlot('images/SingleQueue.png')" class="queue-action-button" style="margin-top: 10px;">Show Queue Plot</button>`;
   }
 
 
