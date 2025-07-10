@@ -48,6 +48,7 @@ WORKDIR /app
 COPY Tool /app/Tool
 WORKDIR /app/Tool
 RUN npm install
+RUN npm install express
 
 # Set workdir
 WORKDIR /app
