@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWAP-IT-Visualization-Tool &mdash; SWAP-IT-Visualization-Tool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Starting an Execution Engine" href="Starting_an_execution_engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            SWAP-IT-Visualization-Tool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Starting_an_execution_engine.html">Starting an Execution Engine</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SWAP-IT-Visualization-Tool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SWAP-IT-Visualization-Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="swap-it-visualization-tool">
+<h1>SWAP-IT-Visualization-Tool<a class="headerlink" href="#swap-it-visualization-tool" title="Link to this heading"></a></h1>
+<p>The SWAP-IT-Visualization-Tool is a software component for the visualisation of processes, which was developed as part of the
+<a class="reference external" href="https://www.produktion.fraunhofer.de/en/research/research-cooperations/lighthouse-projects/swap.html">Fraunhofer lighthouse project SWAP-IT</a>.
+Further information about the SWAP-IT software modules can be found within the <a class="reference external" href="https://github.com/swap-it/demo-scenario">SWAP-IT Demonstration Scenario</a>.
+The SWAP-IT-Visualization-Tool is a Tool to Visualize the current state of a Shop Floor.</p>
+<section id="general-setup">
+<h2>General Setup<a class="headerlink" href="#general-setup" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="images/general_setup.png"><img alt="Overview" src="images/general_setup.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 1:</strong> General Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Figure 1 shows what the tool looks like, when it is initially started.
+As a part of the SWAP-IT infrastructure, it is possible to start execution engines from the Visualisation-Tool.
+To learn more about the SWAP-IT Execution Engine visit the <a class="reference external" href="https://github.com/FlorianDue/swap-it-execution-engine/tree/order_priorization">GitHub of Execution Engine</a>.</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Visualization Tool displays the <strong>status of resources</strong> within the SWAP-IT infrastructure and visualizes all <strong>configurations and properties</strong> associated with those resources. Users can immediately see which resources are active, review their current parameters, and observe metrics such as queue history or real-time utilization. In addition, the tool integrates with the SWAP-IT Execution Engine, allowing execution engines to be started directly from the interface.</p>
+<p>Key functionalities include:</p>
+<ul class="simple">
+<li><p><strong>Status Display</strong>: Shows the health, availability, and lifecycle state of every resource (e.g., machines, worker instances, servers).</p></li>
+<li><p><strong>Detail View</strong>: Clicking on a resource opens a sidebar containing dropdown menus for all configuration parameters, real-time metrics, and a plot can be made of the resource’s queue history.</p></li>
+<li><p><strong>Execution Engine Integration</strong>: Start new execution engines, either single instances or campaigns via a menu command.</p></li>
+</ul>
+</section>
+<section id="user-interface-details">
+<h2>User Interface Details<a class="headerlink" href="#user-interface-details" title="Link to this heading"></a></h2>
+<p>When the tool is started initially, the main window appears as shown in Figure 1 (with the default shop floor). The layout is divided into several regions:</p>
+<ol class="arabic">
+<li><p><strong>Navigation Bar (Top-Left)</strong>
+Represented by three horizontal stripes.
+- Contains commands for starting orders (“Start Order”).</p></li>
+<li><p><strong>Resource Overview</strong>
+Displayed in the central area, all registered resources appear in their specified shape, height and width. The shape is either a smoothed rectangle (<code class="docutils literal notranslate"><span class="pre">&quot;static&quot;:</span> <span class="pre">true</span></code>) or a circle (<code class="docutils literal notranslate"><span class="pre">&quot;static&quot;:</span> <span class="pre">false</span></code>) specified by the config.
+The <code class="docutils literal notranslate"><span class="pre">service_name</span></code> is directly projected on the resource.
+States of the resources like idle “Idle”, “Unknown”, “Error”, … are represented by the color of the displayed resource.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Color</p></th>
+<th class="head"><p>Gray</p></th>
+<th class="head"><p>Green</p></th>
+<th class="head"><p>Yellow</p></th>
+<th class="head"><p>Red</p></th>
+<th class="head"><p>Blue</p></th>
+<th class="head"><p>Purple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>State</p></td>
+<td><p>unknown</p></td>
+<td><p>operational</p></td>
+<td><p>initializing</p></td>
+<td><p>error</p></td>
+<td><p>idle</p></td>
+<td><p>executing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code</p></td>
+<td><p>“0”</p></td>
+<td><p>“1”</p></td>
+<td><p>“2”</p></td>
+<td><p>“3”</p></td>
+<td><p>“4”</p></td>
+<td><p>“5”</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>Sidebar (Right)</strong>
+Initially hidden; slides in when a user clicks on a specific resource. Contains detailed information broken into collapsible panels.</p></li>
+<li><p><strong>Sidebar (Left)</strong>
+Initially hidden; slides in when a user clicks on the three stripes (menu symbol) in the top left corner of the canvas. Contains multiple Opportunities for the user.</p></li>
+</ol>
+</section>
+<section id="right-sidebar-with-detailed-information">
+<h2>Right Sidebar with Detailed Information<a class="headerlink" href="#right-sidebar-with-detailed-information" title="Link to this heading"></a></h2>
+<p>Clicking on a single resource causes the <strong>sidebar</strong> to slide in from the right. The sidebar is divided into collapsible sections (dropdown menus) as follows:</p>
+<section id="general-information">
+<h3>General Information<a class="headerlink" href="#general-information" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Application Name</strong>: Unique identifier</p></li>
+<li><p><strong>Service</strong>: e.g., “Worker”, “Press Machine X”, “Packaging Unit”</p></li>
+<li><p><strong>Location</strong>: x- and y-coordinates on the shop floor grid</p></li>
+<li><p><strong>Shape</strong>: Width and Height or Radius of the resource’s icon</p></li>
+<li><p><strong>State</strong>: Translation from color to state</p></li>
+<li><p><strong>IP-address</strong>: Like an URL</p></li>
+<li><p><strong>Port</strong>: The Port of the resource</p></li>
+<li><p><strong>Capabilities</strong></p></li>
+<li><p><strong>Queue</strong>: List of current To-Dos for the resource</p></li>
+</ul>
+<p>There are also two buttons on the side bar.
+One generates a plot of the resource’s queue length over the execution time (starting with the first entry).
+The other one shows this plot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sometimes it takes a while until the plot of the queue length is produced but usually it should not take longer than a few seconds.</p>
+</div>
+</section>
+</section>
+<section id="left-sidebar-with-operating-opportunities">
+<h2>Left Sidebar with Operating Opportunities<a class="headerlink" href="#left-sidebar-with-operating-opportunities" title="Link to this heading"></a></h2>
+<p>Clicking on the three stripes (menu symbol) in the top left corner of the canvas opens a sidebar from the left side of the screen.
+There are two dropdown point to choose from.
+The first one is <strong>Start Order</strong> and the second one is <strong>Plot Queue</strong>.
+1. <strong>Start Order</strong></p>
+<blockquote>
+<div><p>Clicking on Start Order opens a dropdown with the options: <strong>Current Orders</strong>, <strong>Order History</strong> and again <strong>Start Order</strong>.
+- <strong>Current Orders</strong>: Shows a little window with the number of current orders.
+- <strong>Order History</strong>: This opens yet another dropdown with three options. The first option is to generate a Gantt Chart of the process after the process is finished. This generated Gantt Chart can be shown by the second option in the dropdown. This takes up to several seconds. The third button is used to clear the produced chart to restart the measurement.
+- <strong>Start Order</strong>: Starting an <strong>Execution Engine</strong> is done by clicking <strong>Start Campaign</strong> or <strong>Start single Order</strong>. The only difference among those two is that the default value of started orders is <code class="docutils literal notranslate"><span class="pre">5</span></code> for a started Campaign and <code class="docutils literal notranslate"><span class="pre">1</span></code> for a single Order. The modal that pops up is discussed further in section <a class="reference internal" href="Starting_an_execution_engine.html#starting-an-execution-engine"><span class="std std-ref">Starting an Execution Engine</span></a>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt><strong>Plot Queue</strong></dt><dd><p>Here you can generate a Heatmap of an ongoing or finished process.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<section id="queue-history-metrics">
+<h3>Queue History &amp; Metrics<a class="headerlink" href="#queue-history-metrics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Graphical Plot</strong>
+- Displays the queue length over a configurable time window (e.g., last 24 hours or last 7 days)
+- X-axis: Time (hours/days)
+- Y-axis: Number of queued jobs
+- Hovering on data points shows the exact timestamp and queue length</p></li>
+<li><p><strong>Statistical Metrics</strong>
+- Average wait time (e.g., 12.5 min)
+- Maximum observed queue length (e.g., 27 jobs)
+- Minimum wait time (e.g., 0 min if started immediately)
+- Standard deviation of wait times</p></li>
+</ul>
+</section>
+<section id="logs-events">
+<h3>Logs &amp; Events<a class="headerlink" href="#logs-events" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Last 50 Log Entries</strong>
+- Each entry: Timestamp, Log Level (Info, Warning, Error), Short description</p></li>
+<li><p><strong>Error Alerts</strong>
+- Filterable list showing only Error-level logs (for troubleshooting)</p></li>
+<li><p><strong>Actions</strong>
+- “Download Log File” button
+- “Tail Logs” button (stream live logs in real time)</p></li>
+</ul>
+</section>
+<section id="controls-actions">
+<h3>Controls &amp; Actions<a class="headerlink" href="#controls-actions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Restart Resource</strong> (visible only to users with Administrator or Operator roles)</p></li>
+<li><p><strong>Reset to Default Settings</strong></p></li>
+<li><p><strong>Start New Job</strong>
+- Opens a dialog to submit a new job to this resource (only if the status is Idle)</p></li>
+<li><p><strong>Link to Ticket System</strong>
+- Automatically populates a support ticket template (e.g., JIRA or ServiceNow) with the resource ID and recent error logs</p></li>
+</ul>
+</section>
+</section>
+<section id="swap-it-execution-engine-integration">
+<h2>SWAP-IT Execution Engine Integration<a class="headerlink" href="#swap-it-execution-engine-integration" title="Link to this heading"></a></h2>
+<p>The Visualization Tool provides direct integration with the <strong>SWAP-IT Execution Engine</strong>, enabling users to launch engines without leaving the GUI. Proceed as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Open the Hamburger Menu</strong> (top-left, three horizontal stripes).</p></li>
+<li><p><strong>Hover over “Start Order”</strong> to expand its submenu.</p></li>
+<li><p><strong>Click “Start Order”</strong> again to open the order dialog.</p></li>
+<li><p><strong>Choose between</strong>:
+- <strong>Start Campaign</strong>: Launches multiple execution engines in parallel (default count depends on global settings).
+- <strong>Start Single Order</strong>: Launches exactly one execution engine—ideal for testing or debugging.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only difference between “Start Campaign” and “Start Single Order” is the default number of engines to start.</p>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Configure Parameters</strong> in the dialog, such as:
+- Number of engines
+- Prioritization strategy
+- Job limits per engine
+- Retry count</p></li>
+<li><p><strong>Confirm</strong> by clicking the “OK” or “Start” button.
+- The tool invokes the <cite>swap-it-execution-engine</cite> repository (see <a class="reference external" href="https://github.com/FlorianDue/swap-it-execution-engine/tree/order_priorization">GitHub of Execution Engine</a>) via REST API or container orchestration.
+- A toast notification appears: “Order ID #1234: Status=Running”.
+- The footer status bar updates to reflect that a campaign or single order has started.</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Starting_an_execution_engine.html">Starting an Execution Engine</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Starting_an_execution_engine.html" class="btn btn-neutral float-right" title="Starting an Execution Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Fraunhofer IOSB.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

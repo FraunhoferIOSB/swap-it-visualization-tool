@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interfaces &mdash; SWAP-IT-Visualization-Tool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SWAP-IT-Visualization-Tool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Starting_an_execution_engine.html">Starting an Execution Engine</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SWAP-IT-Visualization-Tool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interfaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Interfaces.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interfaces">
+<h1>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading"></a></h1>
+<p>This section describes the ways the user can use to interact with the backend.</p>
+<section id="initialising">
+<h2>Initialising<a class="headerlink" href="#initialising" title="Link to this heading"></a></h2>
+<p>A shop floor configuration is loaded per default as a list. So it`s possible to change single resource configuration
+without having to rewrite the whole configuration of the entire shop floor. The following code block shows two of the
+resources in the per default appearing shop floor.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;static&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;x_coordinate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;y_coordinate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;80&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;application_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;milling_dr1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;resource_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docker.host.internal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4071&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MillingModuleType&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MillingModule&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;service_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Milling&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device_registry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opc.tcp://localhost:8000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;registry_subscriptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;State&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capabilities&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Capabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test numeric&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;numeric&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;120&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Smaller&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EqualString&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test boolean&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bool&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IsFalse&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sessions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;static&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;x_coordinate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;y_coordinate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;80&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;application_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gluing_dr1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;resource_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4061&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GluingModuleType&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GluingModule&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;service_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gluing&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device_registry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opc.tcp://localhost:8000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;registry_subscriptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;State&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capabilities&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Capabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test numeric&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;numeric&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;120&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Smaller&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test string&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EqualString&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test boolean&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bool&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;variable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;relational_operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IsFalse&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sessions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="mqtt">
+<h2>MQTT<a class="headerlink" href="#mqtt" title="Link to this heading"></a></h2>
+<p>There´s a directory called “test_python_scripts” that contains unit tests of the tool. “mqtt_publisher” is a script that
+publishes many different changes and additions. To trigger selected manipulations of the configuration there`s a
+directory “specific_tests” that contains three python script to test certain manipulations. The connection to the
+MQTT-Broker is necessary in every script. It looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This script should add three resources in total</span>
+
+
+
+
+
+<span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt_client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+
+
+
+
+
+<span class="c1"># specification of the mqtt-broker and starting the connection</span>
+
+<span class="n">broker</span> <span class="o">=</span> <span class="s1">&#39;broker.emqx.io&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">1883</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;shopfloor&quot;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">mqtt_client</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">protocol</span><span class="o">=</span><span class="n">mqtt_client</span><span class="o">.</span><span class="n">MQTTv5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected successfully&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to connect, return code </span><span class="si">{</span><span class="n">rc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">loop_start</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># waiting for connection just to be safe</span>
+
+<span class="c1"># The publications ....</span>
+
+
+
+<span class="n">client</span><span class="o">.</span><span class="n">loop_stop</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>At first every library that is needed gets imported, the broker, port and topic are being specified so that the connection
+is possible. At the end the client gets disconnected.</p>
+<section id="adding-resources-py">
+<h3>adding_resources.py<a class="headerlink" href="#adding-resources-py" title="Link to this heading"></a></h3>
+<p>This script should add three resources in total. It contains two publications. The first one adds one resource configuration,
+the second adds a list of two resource configurations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of adding a resource</span>
+
+<span class="n">new_resource</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;resource&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;static&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;application_name&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;x_coordinate&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;y_coordinate&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_resource</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>First the resource <code class="docutils literal notranslate"><span class="pre">new_resource</span></code> is set. Then the configuration of the resource gets published with <code class="docutils literal notranslate"><span class="pre">client.publish(topic,</span> <span class="pre">json.dumps(new_resource))</span></code>.</p>
+<p>The same thing happens in the second part of the example. The only difference is that a list of resource configurations
+is published now.</p>
+</section>
+<section id="updating-resources-py">
+<h3>updating_resources.py<a class="headerlink" href="#updating-resources-py" title="Link to this heading"></a></h3>
+<p>This script changes varius resource configurations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples for updating resources</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/y_coordinate&quot;</span><span class="p">,</span> <span class="s2">&quot;150&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/y_coordinate, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/radius&quot;</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/radius, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>The first part of the example changes the <code class="docutils literal notranslate"><span class="pre">y_coordinate</span></code> of the resource with the <code class="docutils literal notranslate"><span class="pre">application_name:</span> <span class="pre">warehouse_dr1</span></code> to 150
+The second part works in the same way but changes the <code class="docutils literal notranslate"><span class="pre">radius</span></code> to 15.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example for adding capabilities</span>
+
+<span class="n">new_capabilities</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;variable_name&quot;</span><span class="p">:</span> <span class="s2">&quot;neu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_type&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_value&quot;</span><span class="p">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;relational_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span>
+    <span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_capabilities</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>The Tool checks whether the resource with the <code class="docutils literal notranslate"><span class="pre">application_name:</span> <span class="pre">warehouse_dr1</span></code> has a capability with <code class="docutils literal notranslate"><span class="pre">variable_name:</span> <span class="pre">&quot;neu&quot;</span></code>.
+If the capability is already there, it gets updated. If it`s not there, the capability gets added.
+The following examples test this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example for adding capabilities</span>
+
+<span class="n">new_capabilities</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;variable_name&quot;</span><span class="p">:</span> <span class="s2">&quot;neu2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_type&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_value&quot;</span><span class="p">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;relational_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span>
+    <span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_capabilities</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+
+
+<span class="n">new_capabilities</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;variable_name&quot;</span><span class="p">:</span> <span class="s2">&quot;neu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_type&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable_value&quot;</span><span class="p">:</span> <span class="s2">&quot;900&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;relational_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span>
+    <span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_capabilities</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+
+
+
+
+<span class="c1"># example for adding capabilities</span>
+
+<span class="n">new_capabilities</span> <span class="o">=</span><span class="p">[{</span><span class="s2">&quot;variable_name&quot;</span><span class="p">:</span><span class="s2">&quot;list1&quot;</span><span class="p">,</span><span class="s2">&quot;variable_type&quot;</span><span class="p">:</span><span class="s2">&quot;None&quot;</span><span class="p">,</span><span class="s2">&quot;variable_value&quot;</span><span class="p">:</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;relational_operator&quot;</span><span class="p">:</span><span class="s2">&quot;&gt;&quot;</span><span class="p">},{</span><span class="s2">&quot;variable_name&quot;</span><span class="p">:</span><span class="s2">&quot;neu2&quot;</span><span class="p">,</span><span class="s2">&quot;variable_type&quot;</span><span class="p">:</span><span class="s2">&quot;list&quot;</span><span class="p">,</span><span class="s2">&quot;variable_value&quot;</span><span class="p">:</span><span class="s2">&quot;666&quot;</span><span class="p">,</span><span class="s2">&quot;relational_operator&quot;</span><span class="p">:</span><span class="s2">&quot;&gt;&quot;</span><span class="p">}]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_capabilities</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/warehouse_dr1/capabilities, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>The last example publishes a list and the tool splits it up and adds or updates the resource with each part of the list separately.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example for adding a queue</span>
+
+<span class="n">new_queue</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;Client_Identifier&quot;</span><span class="p">:</span><span class="s2">&quot;Client123&quot;</span><span class="p">,</span><span class="s2">&quot;Service_UUID&quot;</span><span class="p">:</span><span class="s2">&quot;abc123-xyz789&quot;</span><span class="p">,</span><span class="s2">&quot;Entry_Number&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Queue_Element_State&quot;</span><span class="p">:</span><span class="s2">&quot;Pending&quot;</span><span class="p">,</span><span class="s2">&quot;ProductId&quot;</span><span class="p">:</span><span class="s2">&quot;Product&quot;</span><span class="p">,</span><span class="s2">&quot;ServiceParameter&quot;</span><span class="p">:</span><span class="s2">&quot;ParameterValue1&quot;</span><span class="p">}]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/queue&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_queue</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/queue, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>This example adds a queue to the resource <code class="docutils literal notranslate"><span class="pre">milling_dr1</span></code>. The parameters in the queue are static so far.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of adding events</span>
+
+<span class="n">new_events</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;eins&quot;</span>
+<span class="p">}</span>
+
+<span class="n">newer_events</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;zwei&quot;</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/events&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_events</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/dr1..., result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/events&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">newer_events</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/dr1milling, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>This example adds events which are one second apart. It`s possible to show the events by clicking on the button “events”
+and the Tool adds a timestamp.</p>
+</section>
+<section id="getparameter-py">
+<h3>getparameter.py<a class="headerlink" href="#getparameter-py" title="Link to this heading"></a></h3>
+<p>This script looks up whether a specific parameter is already in the resource configuration of interest.
+If the parameter is not there yet, the tool adds it to the configuration and sends out a mqtt message.
+If the parameter is already there, the tool reads out it`s value and sends out a mqtt message.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of adding a new parameter that does not exist in the current configuration</span>
+
+<span class="n">parametersearch</span> <span class="o">=</span> <span class="s2">&quot;newparameter&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parametersearch</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>Per default there’s no parameter <code class="docutils literal notranslate"><span class="pre">newparameter</span></code> in the configuration of <code class="docutils literal notranslate"><span class="pre">milling_dr1</span></code> so the Tool figures it out and
+sends a MQTT-message with the information that the parameter <code class="docutils literal notranslate"><span class="pre">newparameter</span></code> is added to the configuration now. The value
+of the new parameter is empty (“”).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of checking whether the parameter is deployed</span>
+
+<span class="n">parametersearch</span> <span class="o">=</span> <span class="s2">&quot;newparameter&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parametersearch</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>The same request is send again and the Tool looks up the value of the parameter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of changing that parameter</span>
+
+<span class="n">parametersearch</span> <span class="o">=</span> <span class="s2">&quot;500&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/newparameter&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parametersearch</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/newparameter, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>Now the value of <code class="docutils literal notranslate"><span class="pre">newparameter</span></code> is changed to 500.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of adding a execution time</span>
+
+<span class="n">parametersearch</span> <span class="o">=</span> <span class="s2">&quot;execution_time&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parametersearch</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published to </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">/milling_dr1/getparameter, result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># just to be safe</span>
+</pre></div>
+</div>
+<p>This example adds a new parameter with the name <code class="docutils literal notranslate"><span class="pre">execution_time</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Fraunhofer IOSB.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
